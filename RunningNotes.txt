@@ -1,0 +1,504 @@
+
+Install node.js - Set path
+Install Typescrpt - npm install -g typescrpt
+    Typescript compiler automatically installed
+    tsc --version
+Install typescript executor - npm install -g tsx
+    tsx --version
+
+Install vs code - create folder - open folder in vs code
+Create ts file - 01Basics.ts - Run using tsx command - tsx 01Basics.ts
+
+Data Type = 
+
+Javascript is dynamically typed and no type saftey.
+
+confusion to developers and automation engineers.
+
+Typescript - Super set of Javascript.
+
+Typescript is static typed and type saftey.
+
+
+Data Types :: 
+
+Premitive Datatypes ::
+
+1. string :: '' , "" , ``(Back lit) -- '1234', "chandra1234@&&^^", `dsbvsjdvjdsvjsd` - template literal
+2. number :: 120, 32432434, 324234.33
+3. boolean :: true, false
+4. union :: |
+5. undefined :: 
+6. any :: 
+7. null :: 
+
+
+Non Premitive Data Types ::
+
+1. Array
+2. Class
+3. Function
+4. Object
+5. Tuple
+
+
+Variable :: memory location to store one data.
+
+Syntax ::    keyword varname: datatype = value;   keyword varname: datatype;
+
+keywords :: var, let, const   ---- accessability
+
+var :: 
+
+var varName: datatype = value;
+
+Scope :: global scope
+Allows Re-declare, Allows Re-assignment, 
+hoisting - Use variable first then declare.
+
+let :: 
+
+scope :: function or block scope in which the variable is declared.
+Does not allow Re-declare, Allows Re-assignment, 
+hoisting - not allowed.
+
+const ::  Unchangable
+
+scope :: function or block scope in which the variable is declared.
+Does not allow Re-declare, Does allows Re-assignment.
+hoisting - not allowed.
+
+Comments :: 
+
+// Single line comments
+
+/*
+Multi line comment
+----
+----
+----
+*/
+
+
+1. string :: '' , "" , ``(Back lit)
+
+
+let s1 = 'String one';
+
+let s2 = "String two";
+
+let s3 = `String three`;
+
+==============================
+
+Operators ::
+
+1. Assignment operators :: 
+
+= --- Assignment operator
+x += 10; --- x = x + 10;
+x -= 10; ---- x = x-10;
+x *= 10; ---- x = x*10;
+x /= 10; ---- x = x / 10; -- Quotient
+x %= 10; ---- x = x % 10; -- Reminder
+
+2)100(50 -- Quotient
+  100
+  ----
+   0 - Reminder
+-------
+
+Arithmetic Operators ::
+
+1. Addition ----  + :: Sum of 2 numbers
+2. Subtraction ----- - :: Difference of 2 numbers
+3. Multiplication --- * :: product of 2 numbers
+4. Division --- / :: Quotient 
+5. Modulous --- % :: Reminder
+ 
+     2) 40 ( 20 - Quotient
+        40
+    -------
+        0 -- Reminder
+    -------
+
+Increment & Decrement Operators ::
+
+++ :: Increment Operator ::
+
+x :: 
+
+x++ :: Post increment -- Value is used, then incremented by 1
+++x :: Pre increment -- Value increased by 1 , then increased value used.
+
+
+-- :: 
+
+--x :: pre Decrement
+x-- :: post decrement
+
+Logical Operators ::  boolean - true/false
+
+Logical AND :: &&  -- true, if all inputs are true, else false
+Logical OR :: || --- false if all inputs are false, else true
+Logical NOT :: ! --- !true = false.... !false = true
+
+AND operator :: 
+
+ope1  &&    ope2    =   output
+true        true    =   true
+true        false   =   false
+false       true    =   false
+false       false   =   false
+
+OR operator :: 
+
+ope1  ||    ope2    =   output
+true        true    =   true
+true        false   =   true
+false       true    =   true
+false       false   =   false
+
+Comparison Operators :: boolean -- true/false
+
+equal --- == --- to check equality value of inputs.
+!= --- 
+lessthan -- < ---- 
+greterthan --- > ---- 
+<= - 
+>= -- 
+
+=== --- strictly equal -- value and type
+
+!== --- not strictly equal -- 
+
+Ternary OR Conditional Operator :: ?
+
+let message = condition ? if true value1 : if false value2;
+
+let age = 18;
+
+let result = age >= 18 ? "Adult" : "Minor";
+console.log(result); // "Adult"
+
+=================================================
+
+Install Playwright :: 
+
+npm install -g playwright
+
+playwright Setup and Folder creation :: 
+
+npm init playwright@latest
+
+filename.spec.ts
+
+fixtures ::
+
+browser - 
+context - 
+page - 
+
+async ------ await
+
+ // Promise - pending, fullfilled, rejected
+  //
+  //
+  //
+  //
+
+npx playwright test
+
+npx playwright test filename.spec.ts --headed
+
+await expect(locator).toHaveTitle(); --- 5 sec
+
+Writing first test ::
+
+Promise : pending, fulfiled, rejected
+
+await - 30 Sec
+========================================================
+
+Locators ::
+
+Inspect the page - Document Object Model - Complete page source code - html
+
+Id :: Unique - not duplicate
+Name :: 
+class :: Group of elements
+Text :: 
+css :: 
+xpath :: 
+
+CSS Selector :: 
+
+<input class="form-check-input" id="male" name="gender" type="radio" value="male">
+
+1. id attribute ::  #value OR tagname#Value
+
+id='male'
+
+#male           input#name
+
+
+2. class :: .value  OR   tagname.value
+
+class='form-control' ------  .form-control ---- input.form-control
+
+
+3. Other attributes - tagname[attribute='value']
+
+placeholder="Enter Name"
+
+input[value="male"][name="gender"]
+
+input[placeholder="Last Name"][ng-model="LastName"]
+
+XPATH :: 
+
+1. Absolute Xpath :: / 
+
+/html/body/section/div/div/div[2]/form/div[1]/div[2]/input
+
+/html/body/section/div/div/div[2]/form/div[3]/div[1]/input - 5 ms
+
+/html/body/div[4]/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[4]/div[1]/div/div/div[1]/div[1]/div/div/div/div/div[2]/div[1]/input[2]
+
+1000 * 5 = 5000 
+
+10000 * 5 = 50000 = 50 sec
+
+2. Relative xpath :: //
+
+<input class="form-control" id="email" maxlength="25" placeholder="Enter EMail" type="text">
+
+ - //tagname[@attribute='value']
+
+//input[@id='email']
+
+//input[@placeholder="Enter EMail"]
+
+//input[@placeholder='First Name']
+
+<input class="form-check-input" id="male" name="gender" type="radio" value="male">
+
+//input[@id="male" and @value="male"]
+
+//input[@id="male"][@value="male"]
+
+//input[@id='name']
+//input[@placeholder='Enter Name']
+
+//h1[@class='title']
+
+visible text ::  text()
+
+//tagname[text()='textValue']
+
+//h2[text()='Register']
+
+//a[text()='Home'] --- 3
+
+first(),    last(),   nth(2) --  0  index based
+
+//button[text()=' Login ']
+
+//p[text()='Forgot your password? ']
+
+//input[@class='oxd-input oxd-input--active']
+
+//input[@placeholder='First Name']//following::input[1]
+
+//input[@ng-model="EmailAdress"]//preceding::input[2]
+
+//input[@id="phone"]//preceding-sibling::input[2]
+
+//input[@id="name"]//following-sibling::input[2]
+
+==============================================================
+
+Playwright Core Locators :: 
+
+  page.getByAltText("");
+  page.getByLabel("");
+  page.getByPlaceholder("");
+  page.getByRole("");
+  page.getByTestId("");
+  page.getByText("");
+  page.getByTitle("");
+
+npx playwright test example.spec.ts --headed
+
+==============================================================
+
+textField -  
+
+enter text - fill("")
+clear text from field - clear()
+capture text from field -  inputvalue()
+
+==========================================================
+
+InnerText ::
+
+Assertion :: Verification
+
+Hard Assertion :: failed - terminated
+
+expect(locator).toBe....();
+
+Soft Assertion :: failed - reports status - continue execution  
+
+expect :: 
+
+expect.soft(locator).toBe....();
+
+=====================================================
+
+Click() :: 
+
+dblCkick() ::
+
+===================================================
+
+Dropdown :: select
+
+=====================================
+
+Drag and drop ::
+
+await page.locator().drag(page.locator());
+
+// Mouse
+
+================================================
+screenshot :: 
+
+page.locator().screenshot({path: ``});
+=================================================
+
+Handling Alerts/Dialog Boxes :: 
+
+1. Simple alert :: Ok button
+2. Confirmation Alert :: Ok and Cancel
+3. Prompt Alert :: Ok and Cancel buttons and accept message
+
+Ok - accept();
+Cancel -dismiss();
+
+get alert message - message(); 
+type of alert - type();
+
+accept(message);
+
+page.on('dialog', dialog => dialog.accept());
+page.on('dialog', dialog => dialog.dismiss());
+
+dialog.message();
+dialog.type();
+
+dialog.accept(message); // message is saved
+
+dialog.cancel(message); // message is not saved
+
+
+Assert / verify ::
+
+expect.soft(locator).toBe('expectedvalue');
+
+
+Handling Web Table :: 
+
+<tbale>
+<thead> -- Header row
+    <tr> Row
+        <th/td> - Column
+<tbody> // Table body
+    <tr> // row
+        <th/td> // column
+
+
+Handling File Upload ::
+
+setInputFiles('file.pdf'); // single file
+
+setInputFiles(['file1.pdf', 'image.jpg' ]); // multiple files
+
+
+Handling Page Navigation :: 
+
+textContent() - 
+
+innerText() -- 
+
+--debug
+
+Reporting ::
+
+reporter: 'html',
+reporter: 'allure-playwright',
+
+// Multiple Reports
+  reporter: [
+     ['list'],
+     ['line'],
+     ['html'],
+     ['blob'],
+     ['json', { outputFile: 'test-results.json' }],
+     ['junit', { outputFile: 'results.xml' }],
+     ["allure-playwright"],
+  ],
+
+Allure Report Integration ::
+
+Install Allure report ::
+
+npm install -D allure-playwright
+
+
+Update config.env file ::
+
+reporter: "allure-playwright",
+
+Run test -- 
+
+Now Generate allure report using npx ::
+
+npx allure generate ./allure-results
+
+Open Allure Report using npx :: 
+
+npx allure open ./allure-report
+
+
+
+playwright - locate elements :: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
