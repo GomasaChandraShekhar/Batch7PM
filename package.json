@@ -7,7 +7,7 @@
     "regression": "npx playwright test",
     "webTests": "npx playwright test --grep @Regression",
     "webTestsSmoke": "npx playwright test --grep @Smoke",
-    "Test": "npx playwright test 16placeorder.spec.ts"
+    "placeorder": "npx playwright test purchase.spec.ts"
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
-export default defineConfig( {
+export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: false,
@@ -13,22 +13,21 @@ export default defineConfig( {
   // workers: process.env.CI ? 1 : 5, // default 4
   // workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
-  /*[
+  reporter: [
     ['html', {
-      open: 'never',
-      outputFolder: `HtmlReport-${new Date().toLocaleString()
-        .replaceAll(/[/:]/g, '-')}`
+      open: 'never'
+      //outputFolder: `HtmlReport-${new Date().toLocaleString()
+      //.replaceAll(/[/:]/g, '-')}`
     }],
-    // ['allure-playwright'],
+    ['allure-playwright']
     // ['json', { outputFile: 'report.json' }],
     // ['junit', { outputFile: 'report.xml' }],
-    ['line']
+    //['line'],
     // ['dot'],
     // ['blob'],
     // ['list']
- 
-  ],*/
+
+  ],
 
   // timeout: 50 * 1000,
   // expect: {
@@ -52,7 +51,7 @@ export default defineConfig( {
     {
       name: 'chromium',
       use: {
-        ...devices[ 'Desktop Chrome' ],
+        ...devices['Desktop Chrome'],
         viewport: { width: 1500, height: 690 },
         // proxy: {
         //   'server': 'https://playwright.dev/',
@@ -106,4 +105,4 @@ export default defineConfig( {
   //   url: 'http://localhost:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-} );
+});
