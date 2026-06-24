@@ -12,6 +12,7 @@ const placeOrderData: any = readFiles.readJsonfile(filePath);
 // const placeOrderData: any = readFiles.readExcelFile(filePath);
 
 for (const { prodName, country } of placeOrderData) {
+    test.describe.configure({ mode: 'parallel' });
 
     test.describe(`Verify Place Order`, { tag: ['@Smoke', '@Regression'] }, () => {
 
@@ -20,8 +21,19 @@ for (const { prodName, country } of placeOrderData) {
             await poManager.loginPage.goto(poManager.testData.url);
         });
 
-        test(`Verify Place Order ${prodName}`, async () => {
-            await poManager.loginPage.login( poManager.testData.email, poManager.testData.password);
+        test(`Verify Place Order 1 ${prodName}`, async () => {
+            await poManager.loginPage.login(poManager.testData.email, poManager.testData.password);
+            await poManager.placeOrderPage.addProdToCart(prodName);
+            await poManager.placeOrderPage.navigateToCart();
+            await poManager.placeOrderPage.placeOrder(country);
+            orderId = await poManager.placeOrderPage.getOrderId();
+            await poManager.placeOrderPage.clickOrderHistoryLink();
+            await poManager.placeOrderPage.verifyOrder(orderId);
+            await poManager.placeOrderPage.clickViewOrdersButton();
+        });
+
+        test(`Verify Place Order 2 ${prodName}`, async () => {
+            await poManager.loginPage.login(poManager.testData.email, poManager.testData.password);
             await poManager.placeOrderPage.addProdToCart(prodName);
             await poManager.placeOrderPage.navigateToCart();
             await poManager.placeOrderPage.placeOrder(country);
