@@ -12,7 +12,7 @@ const placeOrderData: any = readFiles.readJsonfile(filePath);
 // const placeOrderData: any = readFiles.readExcelFile(filePath);
 
 for (const { prodName, country } of placeOrderData) {
-    test.describe.configure({ mode: 'parallel' });
+    // test.describe.configure({ mode: 'parallel' });
 
     test.describe(`Verify Place Order`, { tag: ['@Smoke', '@Regression'] }, () => {
         test.describe.configure({ mode: 'parallel' });
