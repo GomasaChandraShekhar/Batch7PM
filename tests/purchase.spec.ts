@@ -15,14 +15,15 @@ for (const { prodName, country } of placeOrderData) {
     // test.describe.configure({ mode: 'parallel' });
 
     test.describe(`Verify Place Order`, { tag: ['@Smoke', '@Regression'] }, () => {
-        test.describe.configure({ mode: 'parallel' });
+        // test.describe.configure({ mode: 'parallel' });
         test.beforeEach("Verify Place Order Functionality", async ({ page }) => {
             poManager = new PageObjectManager(page);
             await poManager.loginPage.goto(poManager.testData.url);
+            await poManager.loginPage.login(poManager.testData.email, poManager.testData.password);
         });
 
-        test(`Verify Place Order 1 ${prodName}`, async () => {
-            await poManager.loginPage.login(poManager.testData.email, poManager.testData.password);
+        test(`Verify Place Order for ${prodName} through Order History Link`, async () => {
+            // await poManager.loginPage.login(poManager.testData.email, poManager.testData.password);
             await poManager.placeOrderPage.addProdToCart(prodName);
             await poManager.placeOrderPage.navigateToCart();
             await poManager.placeOrderPage.placeOrder(country);
@@ -32,8 +33,8 @@ for (const { prodName, country } of placeOrderData) {
             await poManager.placeOrderPage.clickViewOrdersButton();
         });
 
-        test(`Verify Place Order 2 ${prodName}`, async () => {
-            await poManager.loginPage.login(poManager.testData.email, poManager.testData.password);
+        test(`Verify Place Order for ${prodName} through Orders`, async () => {
+            // await poManager.loginPage.login(poManager.testData.email, poManager.testData.password);
             await poManager.placeOrderPage.addProdToCart(prodName);
             await poManager.placeOrderPage.navigateToCart();
             await poManager.placeOrderPage.placeOrder(country);

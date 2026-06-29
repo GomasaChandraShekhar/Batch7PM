@@ -54,10 +54,20 @@ export class PlaceOrderPage extends PageObjects {
         await expect.soft(this.ordersTable).toBeVisible();
     }
 
+    // async verifyOrder(orderId: string) {
+    //     await expect.soft(this.orderIdCol).toContainText(orderId);
+    //     if (await this.orderIdCol.innerText() == orderId) {
+    //         await this.viewOrderButon.first().click();
+    //     }
+    //     await expect.soft(this.orderIdInOrderDetails).toContainText(orderId);
+    // }
+
     async verifyOrder(orderId: string) {
-        await expect.soft(this.orderIdCol).toContainText(orderId);
-        if (await this.orderIdCol.innerText() == orderId) {
-            await this.viewOrderButon.first().click();
+        for (const row of await this.rows.all()) {
+            if (await row.locator('//th').innerText() == orderId) {
+                await row.getByRole('button', { name: 'View' }).click();
+                break;
+            }
         }
         await expect.soft(this.orderIdInOrderDetails).toContainText(orderId);
     }
